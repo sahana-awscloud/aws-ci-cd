@@ -24,7 +24,3 @@ phases:
   post_build:
     commands:
       - echo "Build completed successfully!"
-artifacts:
-  files:
-    - '**/*'
-  base-directory: ../python-flask-app-on-EC2
