@@ -27,4 +27,4 @@ phases:
 artifacts:
   files:
     - '**/*'
-  base-directory: ../python-flask-app-on-EC2
+  base-directory: ../python-flask-app-on-ec2
