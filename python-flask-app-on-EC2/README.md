@@ -9,10 +9,8 @@ This project demonstrates how to set up a complete CI/CD pipeline for a simple P
 4.	AWS CodeDeploy (deployment to EC2)
 5.	Amazon EC2 (hosting the application in a Docker container)
 Every code push to GitHub automatically triggers the pipeline → builds → deploys to EC2.
-<image>
-
+ 
 Project Structure
-
 python-flask-app-on-ec2/
 │   ├── app.py                 # Flask application code
 │   ├── Dockerfile             # Docker image build instructions
@@ -24,65 +22,18 @@ scripts/
 appspec.yml                    # CodeDeploy configuration
 
 IAM Roles
-
 The following IAM roles were created for secure access control:
 1. codepipeline-python-flask-app-on-ec2
    - Used by AWS CodePipeline.
    - Allows pipeline orchestration and triggering CodeBuild/CodeDeploy.
-   - Trsut policy
-     {
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Effect": "Allow",
-            "Principal": {
-                "Service": "codebuild.amazonaws.com"
-            },
-            "Action": "sts:AssumeRole"
-        }
-    ]
-}
+ 
 2. codebuild-python-flask-app-on-ec2
    - Used by AWS CodeBuild.
    - Grants permissions for S3 (artifacts), ECR/Docker registry (push images), and CloudWatch logs.
-   - Trust policy
-     {
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Sid": "CodePipelineTrustPolicy",
-            "Effect": "Allow",
-            "Principal": {
-                "Service": "codepipeline.amazonaws.com"
-            },
-            "Action": "sts:AssumeRole",
-            "Condition": {
-                "StringEquals": {
-                    "aws:SourceAccount": "592965056328"
-                }
-            }
-        }
-    ]
-}
+ 
 3. codedeploy-python-flask-app-on-ec2
    - Used by AWS CodeDeploy and attached to the EC2 instance.
    - Allows deployment agent on EC2 to fetch artifacts and execute lifecycle hooks.
-   - Trust policy
-      {
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Effect": "Allow",
-            "Principal": {
-                "Service": [
-                    "ec2.amazonaws.com",
-                    "codedeploy.amazonaws.com"
-                ]
-            },
-            "Action": "sts:AssumeRole"
-        }
-    ]
-}
 
 CI/CD Workflow
 1. Source Stage (CodePipeline)
