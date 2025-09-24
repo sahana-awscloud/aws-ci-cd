@@ -1,5 +1,5 @@
 #!/bin/bash
-set -e
+containerID=`docker ps | awk -F" " '{Print $1}'`
 
-# Stop the running container (if any)
-echo "Hi"
+docker rm -f $containerID
+
