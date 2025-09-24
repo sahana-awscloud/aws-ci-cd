@@ -12,7 +12,9 @@ Every code push to GitHub automatically triggers the pipeline → builds → dep
  <img width="743" height="400" alt="image" src="https://github.com/user-attachments/assets/456e8aee-8727-4fa1-bf62-a3466f090ce0" />
 
 Project Structure
+
 <img width="562" height="352" alt="image" src="https://github.com/user-attachments/assets/af685b9a-cf11-42f5-ad57-9fdbbcbecc85" />
+
 
 IAM Roles
 The following IAM roles were created for secure access control:
