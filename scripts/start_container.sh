@@ -1,8 +1,0 @@
-#!/bin/bash
-set -e
-
-# Pull the Docker image from Docker Hub
-docker pull sahanaaws30/python-flask-app-on-ec2:latest
-
-# Run the Docker image as a container
-docker run -d -p 5000:5000 sahanaaws30/python-flask-app-on-ec2
