@@ -46,6 +46,8 @@ CI/CD Workflow
    - Builds a Docker image using `Dockerfile`.
    - Pushes the Docker image to the container registry.
    - Generates build artifacts for deployment.
+     <img width="1870" height="242" alt="image" src="https://github.com/user-attachments/assets/ad1532ee-a632-4994-8275-91fd5a578b05" />
+
 3. Deploy Stage (CodeDeploy)
    - Downloads build artifacts.
    - Uses `appspec.yml` to run lifecycle hooks.
