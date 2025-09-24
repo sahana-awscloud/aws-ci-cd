@@ -16,6 +16,7 @@ Project Structure
 <img width="562" height="352" alt="image" src="https://github.com/user-attachments/assets/af685b9a-cf11-42f5-ad57-9fdbbcbecc85" />
 
 
+
 IAM Roles
 The following IAM roles were created for secure access control:
 1. codepipeline-python-flask-app-on-ec2
